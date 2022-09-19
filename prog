@@ -1,0 +1,454 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace feladadatok
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("(https://merlinvizsga.hu/download/Programozas%20gyakorlo%20feladatok.pdf)\nIrja be a feladat számát a feladat megtekintéséhez(1-..): ");
+            int feladat = Convert.ToInt32(Console.ReadLine());
+            switch (feladat)
+            {
+                case 1:
+                    // Bekérés
+                    Console.Write("\nAdja meg az első számot: ");
+                    int elso = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("\nAdja meg a második számot: ");
+                    int masodik = Convert.ToInt32(Console.ReadLine());
+                    // Számitás
+                    Console.WriteLine($"\nA kettő szám összege: {elso + masodik}");
+                    Console.WriteLine($"A kettő szám különbsége: {elso - masodik}");
+                    break;
+                case 2:
+                    // Bekérés
+                    Console.Write("\nIrj be egy egész számot: ");
+                    double a = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("\nIrj be egy másik egész számot: ");
+                    double b = Convert.ToInt32(Console.ReadLine());
+                    // Számitás
+                    Console.WriteLine($"A kettő szám szorzata: {a * b}");
+                    Console.WriteLine($"A kettő szám szorzata: {String.Format("{0:0.00}", a / b)}");
+                    break;
+                case 3:
+                    Console.Write("\nAdd meg a térfogatot deciliterben: ");
+                    double terfogat = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine($"\tHektoliter: {terfogat / 1000}\n\tLiter: {terfogat / 10}\n\tDeciliter: {terfogat}");
+                    break;
+                case 4:
+                    Console.Write("\nAdd meg az átváltáshoz az értéket mm-ben: ");
+                    double atvaltas = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine($"\n\tMéter: {atvaltas / 1000}\n\tDeciméter: {atvaltas / 100}\n\tCentiméter: {atvaltas / 10}\n\tMilliméter: {atvaltas}");
+                    break;
+                case 5:
+                    Console.Write("\nAdd meg a kör sugarát: ");
+                    double sugar = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine($"\n\tKerület: {String.Format("{0:0.0000}", 2 * sugar * Math.PI)}\n\tTerület: {String.Format("{0:0.0000}", sugar * sugar * Math.PI)}");
+                    break;
+                case 6:
+                    Console.Write("\nAdja meg az értéket °C-ban az atváltáshoz: ");
+                    double celsius = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine($"\n\tFahrenheit: {String.Format("{0:0.00}", celsius * 9 / 5 + 32)}");
+                    break;
+                case 7:
+                    Console.Write("\nAdja meg az értéket °F-ban az átváltáshoz: ");
+                    double fahrenheit = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine($"\n\tFahrenheit: {String.Format("{0:0.00}", (fahrenheit - 32) * 5 / 9)}");
+                    break;
+                case 8:
+                    Console.Write("\nAdd meg a négyzet oldalhosszát: ");
+                    double oldalhossz = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine($"\n\tKerület: {String.Format("{0:0.00}", 4 * oldalhossz)}\n\tTerület: {String.Format("{0:0.00}", oldalhossz * oldalhossz)}");
+                    break;
+                case 9:
+                    Console.Write("\nAdd meg a téglalap (a) oldalát: ");
+                    double aoldal = Convert.ToDouble(Console.ReadLine());
+
+                    Console.Write("\nAdd meg a téglalap (b) oldalát: ");
+                    double boldal = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine($"\n\tKerület: {String.Format("{0:0.00}", 2 * (aoldal + boldal))}\n\tTerület: {String.Format("{0:0.00}", aoldal * boldal)}");
+                    break;
+                case 10:
+                    Console.Write("\nAdd meg a kocka oldalhosszúságát (a): ");
+                    double aoldalhossz = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine($"\n\tFelszín: {String.Format("{0:0.00}", aoldalhossz * aoldalhossz * 6)}\n\tTérfogat: {String.Format("{0:0.00}", aoldalhossz * aoldalhossz * aoldalhossz)}");
+                    break;
+                case 11:
+                    Console.Write("\nAdd meg a téglatest (a) oldalát: ");
+                    double Ta = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("\nAdd meg a téglatest (b) oldalát: ");
+                    double Tb = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("\nAdd meg a téglatest (c) oldalát: ");
+                    double Tc = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine($"\n\tFelszín: {String.Format("{0:0.000}", 2 * Ta * Tb + 2 * Ta * Tc + 2 * Tb * Tc)}" +
+                                        $"\n\tTérfogat: {String.Format("{0:0.000}", Ta * Tb * Tc)}");
+                    break;
+                case 12:
+                    Console.Write("\nAdd meg a henger sugarát: ");
+                    double hengersugar = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("\nAdd meg a henger magasságát: ");
+                    double hengermagassag = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine($"\n\tFelszín: {String.Format("{0:0.00}", Math.PI * hengersugar * hengermagassag)}" +
+                                      $"\n\tTérfogat: {String.Format("{0:0.00}", 2 * Math.PI * hengersugar * (hengersugar + hengermagassag))}");
+                    break;
+                case 14:
+                    Console.Write("\nAdd meg a pénzösszeget: ");
+                    double penz = Convert.ToDouble(Console.ReadLine());
+                    double maradek = penz % 5;
+                    if (maradek < 3)
+                    {
+                        penz = penz - 1;
+
+                    }
+                    else
+                    {
+                        penz = penz + (maradek - 5);
+                    }
+                    Console.WriteLine($"\n\tKerekitve: {penz}");
+                    break;
+                case 15:
+                    Console.Write("\nAdj meg egy számot: ");
+                    double ASzam = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("\nAdj meg még egy számot: ");
+                    double BSzam = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine($"\n\tSzámtani közép: {(ASzam + BSzam) / 2}");
+                    break;
+                case 16:
+                    Console.WriteLine("\nAdd meg A és B pont koordinátáit (x1 és y1): ");
+                    double x_elso_koordinata = Convert.ToDouble(Console.ReadLine());
+                    double y_elso_koordinata = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine("\nAdd meg A és B pont koordinátáit (x2 és y2): ");
+                    double x_masodik_koordinata = Convert.ToDouble(Console.ReadLine());
+                    double y_masodik_koordinata = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine($"\n\tKét pont távolsága: {Math.Sqrt((y_elso_koordinata - y_masodik_koordinata) * (y_elso_koordinata - y_masodik_koordinata) + (x_elso_koordinata - x_masodik_koordinata) * ( x_elso_koordinata - x_masodik_koordinata))}");
+                    break;
+                case 17:
+                    Console.Write("\nAdd meg a nap bevételét: ");
+                    double napibevetel = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine($"\n\tEnnek az 5%: {napibevetel / 100 * 5} ");              
+                    break;
+                case 18:
+                    Console.Write("\nHáromszög A befogója: ");
+                    double ABefogo = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("\nHáromszög B befogója: ");
+                    double BBefogo = Convert.ToDouble(Console.ReadLine());
+
+                    Console.WriteLine($"\n\tÁtfogó: {Math.Sqrt(Math.Pow(ABefogo,2) + Math.Pow(BBefogo,2))}");
+                    break;
+                case 19:
+                    Console.Write("\nHány darab 20000Ft van: ");
+                    int huszezer = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("\nHány darab 10000Ft van: ");
+                    int tizezer = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("\nHány darab 5000Ft van: ");
+                    int otezer = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("\nHány darab 2000Ft van: ");
+                    int ketezer = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("\nHány darab 1000Ft van: ");
+                    int ezer = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("\nHány darab 500Ft van: ");
+                    int otszaz = Convert.ToInt32(Console.ReadLine());
+
+                    Console.WriteLine($"\n\tÖsszesen: {huszezer * 20000 + tizezer * 10000 + otezer * 5000 + ketezer * 2000 + ezer * 1000 + otszaz * 500}");
+                    break;
+                case 20:
+                    Console.Write("\nAdj meg egy számot: ");
+                    int ParosVParatlan = Convert.ToInt32(Console.ReadLine());
+                    if (ParosVParatlan % 2 == 0)
+                    {
+                        Console.WriteLine("\n\tPáros!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("\n\tPáratlan!");
+                    }
+                    break;
+                case 21:
+                    Console.Write("\nAdj meg egy számot: ");
+                    int ParosVParatlan2 = Convert.ToInt32(Console.ReadLine());
+                    if (ParosVParatlan2  == 0)
+                    {
+                        Console.WriteLine("\n\tNulla!");
+                    }
+                    else if (ParosVParatlan2 % 2 == 0)
+                    {
+                        Console.WriteLine("\n\tPáros!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("\n\tPáratlan!");
+                    }
+
+                    break;
+                case 22:
+                    Console.Write("\nAdj meg egy számot, hogy megnézd osztható-e hárommal: ");
+                    double HarommalOszthato = Convert.ToDouble(Console.ReadLine());
+
+                    if (HarommalOszthato % 3 == 0)
+                    {
+                        Console.WriteLine("\n\tOsztható!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("\n\tNem osztható!");
+                    }
+                    break;
+                case 23:
+                    Console.Write("\nAdj meg egy számot: ");
+                    double szam1 = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("\nAdj meg egy másik számot: ");
+                    double szam2 = Convert.ToDouble(Console.ReadLine());
+
+                    if (szam1 > szam2)
+                    {   
+                        Console.WriteLine($"\n\tEredmeny: {szam1 - szam2}");
+                    }
+                    else
+                    {              
+                        Console.WriteLine($"\n\tEredmeny: {szam2 - szam1}");
+                    }
+                    break;
+                case 24:
+                    Console.Write("\nAdd meg egy számot, hogy megtudd melyik évszakba tartozik: ");
+                    int evszak = Convert.ToInt32(Console.ReadLine());
+                    if (evszak == 1 || evszak == 2 || evszak == 12)
+                    {
+                        Console.WriteLine("\n\tTél!");
+                    }
+                    else if (evszak == 3 || evszak == 4 || evszak == 5)
+                    {
+                        Console.WriteLine("\n\tTavasz!");
+                    }
+                    else if (evszak == 6 || evszak == 7 || evszak == 8)
+                    {
+                        Console.WriteLine("\n\tNyár!");
+                    }
+                    else if (evszak == 9 || evszak == 10 || evszak == 11)
+                    {
+                        Console.WriteLine("\n\tŐsz");
+                    }
+                    break;
+                case 25:
+                    Console.Write("\nAdj meg egy számot: ");
+                    double Oszam1 = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("\nAdj meg egy másik számot: ");
+                    double Oszam2 = Convert.ToDouble(Console.ReadLine());
+
+                    if (Oszam1 == 0 || Oszam2 == 0)
+                    {
+                        Console.WriteLine("\n\tNem lehet osztni!");
+                    }
+                    else if (Oszam1 > Oszam2)
+                    {
+                        Console.WriteLine($"\n\tEredmény: {String.Format("{0:0.00}", Oszam1 / Oszam2)}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"\n\tEredmény: {String.Format("{0:0.00}",Oszam2 / Oszam1)}");
+                    }
+                    break;
+                case 26:
+                    Console.Write("\nAdj meg egy számot: ");
+                    double Oszto_Elso_Szam = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("\nAdj meg egy másik számot: ");
+                    double Oszto_Masodik_Szam = Convert.ToDouble(Console.ReadLine());
+
+                    if (Oszto_Elso_Szam > Oszto_Masodik_Szam)
+                    {
+                        if (Oszto_Elso_Szam / Oszto_Masodik_Szam > 0)
+                        {
+                            Console.WriteLine($"\n\tOsztható!\n\tEredmény: {Oszto_Elso_Szam / Oszto_Masodik_Szam}");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("\n\tNem osztható, mivel a második szám nagyobb!");
+                    }
+                    break;
+                case 27:
+
+                    Console.Write("\nHáromszög A oldala: ");
+                    double Haromszog_A_Oldala = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("\nHáromszög B oldala: ");
+                    double Haromszog_B_Oldala = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("\nHáromszög C oldala: ");
+                    double Haromszog_C_Oldala = Convert.ToDouble(Console.ReadLine());
+
+                    if (Haromszog_A_Oldala < Haromszog_B_Oldala + Haromszog_C_Oldala &&
+                        Haromszog_B_Oldala < Haromszog_A_Oldala + Haromszog_C_Oldala &&
+                        Haromszog_C_Oldala < Haromszog_A_Oldala + Haromszog_B_Oldala)
+                    {
+                        Console.WriteLine($"\n\tSzerkeszthető!");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"\n\tNem szerkeszthető!");
+                    }
+                    break;
+                case 28:
+                    Console.Write("\nAdj meg egy számot a hét kiiratásához: ");
+                    int nap = Convert.ToInt32(Console.ReadLine());
+                    string[] napok = { "Hétfő","Kedd","Szerda","Csütörtök","Péntek","Szombat","Vasárnap" };
+
+                    Console.WriteLine($"\n\tNap:{napok[nap-1]}");
+                    break;
+                case 29:
+                    Console.Write("\nAdj meg egy számot a hét kiiratásához: ");
+                    int Honaop_Szam = Convert.ToInt32(Console.ReadLine());
+                    string[] Honapok = { "Január", "Február", "Március", "Április", "Május", "Június", "Július","Augusztus","Szeptember","Október","Novemver","December" };
+
+                    Console.WriteLine($"\n\tNap: {Honapok[Honaop_Szam - 1]}");
+                    break;
+                case 30:
+                    Console.WriteLine("Add meg milyen hőmérsékletű a viz: ");
+                    int homerseklet = Convert.ToInt32(Console.ReadLine());
+                    if (homerseklet < 0)
+                    {
+                        Console.WriteLine("\n\tJég!");
+                    }
+                    else if (homerseklet < 100)
+                    {
+                        Console.WriteLine("\n\tFolyékony!");
+                    }
+                    else if (homerseklet > 100)
+                    {
+                        Console.WriteLine("\n\tGőz!");
+                    }
+                    break;
+                case 31:
+                    Console.Write("\nAdd meg hány pontot szertett a csapat: ");
+                    int pont = Convert.ToInt32(Console.ReadLine());
+                    if (pont == 0)
+                    {
+                        Console.WriteLine("\n\tVereség!");
+                    }
+                    else if (pont == 1)
+                    {
+                        Console.WriteLine("\n\tDöntetlen!");
+                    }
+                    else if (pont == 3)
+                    {
+                        Console.WriteLine("\n\tGyőzelem!");
+                    }
+                    break;
+                case 32:
+                    Console.Write("\nAdd meg a dolgozat pontszámát: ");
+                    int DolgozatPont = Convert.ToInt32(Console.ReadLine());
+                    if (DolgozatPont > 100 || DolgozatPont < 0)
+                    {
+                        Console.WriteLine("hiba");
+                    }
+                    else if (DolgozatPont > 0 && DolgozatPont < 50)
+                    {
+                        Console.WriteLine("\n\tAz értékeles 1-es.");
+                    }
+                    else if (DolgozatPont > 50 && DolgozatPont < 65)
+                    {
+                        Console.WriteLine("\n\tAz értékelés 2-es.");
+                    }
+                    else if (DolgozatPont > 65 && DolgozatPont <= 80)
+                    {
+                        Console.WriteLine("\n\tAz értékelés 3-as.");
+                    }
+                    else if (DolgozatPont > 80 && DolgozatPont <= 90)
+                    {
+                        Console.WriteLine("\n\tAz értékelés 4-es.");
+                    }
+                    else if (DolgozatPont >= 90)
+                    {
+                        Console.WriteLine("\n\tAz értékelés 5-ös.");
+                    }
+                    break;
+                case 33:
+                    Console.Write("\nAdd meg a jegyet: ");
+                    int jegy_szöveges = Convert.ToInt32(Console.ReadLine());
+                    
+                    if (jegy_szöveges == 1)
+                    {
+                        Console.WriteLine("\n\tElégtelen!");
+                    }
+                    else if (jegy_szöveges == 2)
+                    {
+                        Console.WriteLine("\n\tElégséges!");
+                    }
+                    else if (jegy_szöveges == 3)
+                    {
+                        Console.WriteLine("\n\tKözepes!");
+                    } else if (jegy_szöveges == 4)
+                    {
+                        Console.WriteLine("\n\tJó!");
+                    } else if (jegy_szöveges == 5)
+                    {
+                        Console.WriteLine("\n\tKitűnő!");
+                    }
+                    Console.WriteLine();
+                    break;
+                case 34:
+                    Console.WriteLine("\nAdj meg egy koordinátát, hogy megtudd melyik síknegyedbe tartozik");
+                    Console.Write("\nElső pont:");
+                    int ElsoKoordinata = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("\nMásodik pont:");
+                    int MasodikKoordinata = Convert.ToInt32(Console.ReadLine());
+
+
+
+                    break;
+                //Ciklusok
+                case 35:
+                    Console.WriteLine("\n10 és 20 közötti egész számok:");
+                    
+
+                    for (int i = 10; i < 20; i++)
+                    {
+                       Console.Write($" {i} ");
+                    }
+                    break;
+                case 36:
+                    Console.WriteLine("\n10 és 30 közötti páros számok:");
+
+                    for (int i = 10; i < 30; i++)
+                    {
+                        if (i % 2 == 0)
+                        {
+                            Console.Write($" {i} ");
+                        }
+                    }
+                    break;
+                case 37:
+                    Console.Write("\nAdj meg kettő számot, hogy megtudd a kettő közötti páros számokat!");
+                    int ElsoSzam = Convert.ToInt32(Console.ReadLine());
+                    int MasodikSzam = Convert.ToInt32(Console.ReadLine());
+                    for (int i = ElsoSzam; i < MasodikSzam; i++)
+                    {
+                        if (i % 2 == 0)
+                        {
+                            Console.Write($" {i} ");
+                        }
+                    }
+                    break;
+                case 38:
+                    break;
+
+            }
+            Console.ReadKey();
+        }
+    }
+} 
