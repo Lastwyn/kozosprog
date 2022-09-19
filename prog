@@ -402,14 +402,28 @@ namespace feladadatok
                     Console.WriteLine();
                     break;
                 case 34:
-                    Console.WriteLine("\nAdj meg egy koordinátát, hogy megtudd melyik síknegyedbe tartozik");
-                    Console.Write("\nElső pont:");
-                    int ElsoKoordinata = Convert.ToInt32(Console.ReadLine());
-                    Console.Write("\nMásodik pont:");
-                    int MasodikKoordinata = Convert.ToInt32(Console.ReadLine());
-
-
-
+                    
+                    Console.WriteLine("Adj meg egy koordinátát.(x,y)");
+                    double koorx = Convert.ToDouble(Console.ReadLine());
+                    double koory = Convert.ToDouble(Console.ReadLine());
+                    bool posx = koorx == Math.Abs(koorx);
+                    bool posy = koory == Math.Abs(koory);
+                    if (posx && posy)
+                    {
+                        Console.WriteLine("Ez a koordináta az Első síknegyedhez tartozik.");
+                    }
+                    else if (!posx && !posy)
+                    {
+                        Console.WriteLine("Ez a koordináta a Harmadik síknegyedhez tartozik.");
+                    }
+                    else if (!posx && posy)
+                    {
+                        Console.WriteLine("Ez a koordínáta a Második síknegyedhez tartozik.");
+                    }
+                    else if (posx && !posy)
+                    {
+                        Console.WriteLine("Ez a koordínáta a Negyedik síknegyedhez tartozik.");
+                    }
                     break;
                 //Ciklusok
                 case 35:
